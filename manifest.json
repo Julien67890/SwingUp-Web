@@ -1,0 +1,12 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "SwingUp",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "SwingUp",
+  "start_url": "/",
+  "theme_color": "#1b4332",
+  "id": "SWP"
+}
