@@ -44,11 +44,14 @@ a{color:inherit;text-decoration:none}
 .btn-ghost:hover{background:rgba(255,255,255,.12)}
 
 /* ---------- hero ---------- */
-.hero{position:relative;color:#fff;background:#0b2a19 url(img/hero-parcours.jpg) 62% 40%/cover no-repeat;padding-bottom:120px}
-.hero::before{content:"";position:absolute;inset:0;background:
+.hero{position:relative;color:#fff;padding-bottom:120px;overflow:hidden;
+  background:radial-gradient(38% 50% at 70% 62%,rgba(246,214,128,.55),transparent 70%),radial-gradient(60% 40% at 72% 78%,rgba(214,190,104,.35),transparent 70%),linear-gradient(180deg,#061a0e 0%,#0b2d18 34%,#1f5a30 62%,#4f8a3e 78%,#2d6a34 100%)}
+.scene{position:absolute;left:0;right:0;bottom:0;height:62%;pointer-events:none;background:url(img/paysage.jpg) 50% 100%/cover no-repeat;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 30%);mask-image:linear-gradient(180deg,transparent 0%,#000 30%)}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:
   linear-gradient(90deg,rgba(5,30,16,.92) 0%,rgba(5,30,16,.78) 30%,rgba(5,30,16,.25) 52%,rgba(5,30,16,0) 66%),
   linear-gradient(180deg,rgba(5,30,16,.85) 0%,rgba(5,30,16,0) 22%)}
-.hero .wave{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:110px;display:block}
+.hero .wave{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:110px;display:block;z-index:2}
 .nav{position:relative;z-index:5}
 .nav .wrap{display:flex;align-items:center;gap:30px;height:118px}
 .brand{display:flex;align-items:center;gap:14px;color:#fff}
@@ -104,6 +107,32 @@ a{color:inherit;text-decoration:none}
 .feat .phone .scr{border-radius:30px}
 .feat .phone .scr img{width:calc(var(--z,1)*100%);max-width:none;height:auto;transform:translate(var(--tx,0),var(--ty,0))}
 
+
+/* mini-écrans redessinés des cartes */
+.ui{position:absolute;inset:0;background:#f5f0e3;color:#16301f;font-family:var(--sans);padding:34px 12px 0;display:flex;flex-direction:column;gap:8px}
+.ui .bar{display:flex;align-items:center;justify-content:space-between;font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#6c7b6f}
+.ui .ttl{font-family:var(--serif);font-weight:800;font-size:1.05rem;color:#0f3a22}
+.ui .club{background:linear-gradient(160deg,#1c5a35,#0f3d24);color:#fff;border-radius:14px;padding:12px 12px 14px}
+.ui .club small{display:block;font-size:.58rem;letter-spacing:.14em;font-weight:800;color:#b9e2c4;text-transform:uppercase}
+.ui .club b{display:block;font-family:var(--serif);font-size:1.9rem;line-height:1.05;margin:4px 0 4px;color:#fff}
+.ui .club span{font-size:.68rem;color:#d8eadc;line-height:1.35;display:block}
+.ui .chips{display:flex;gap:5px;margin-top:9px}
+.ui .chips i{font-style:normal;font-size:.6rem;font-weight:800;padding:4px 8px;border-radius:6px;border:1px solid rgba(255,255,255,.35);color:#fff}
+.ui .chips i.on{background:var(--gold);border-color:var(--gold);color:#2e2306}
+.ui .dist{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.ui .dist div{background:#fff;border-radius:12px;padding:9px 10px;box-shadow:0 4px 10px -8px rgba(0,0,0,.5)}
+.ui .dist small{display:block;font-size:.56rem;letter-spacing:.12em;font-weight:800;color:#6c7b6f;text-transform:uppercase}
+.ui .dist b{font-family:var(--serif);font-size:1.45rem;color:#0f3a22}
+.ui .dist b em{font-style:normal;font-family:var(--sans);font-size:.7rem;margin-left:2px;color:#4f5c53}
+.ui .dist .full{grid-column:1/-1;background:#0f3d24;color:#fff}
+.ui .dist .full small{color:#b9e2c4}.ui .dist .full b{color:var(--gold-2)}.ui .dist .full b em{color:#d8eadc}
+.ui .bag{display:grid;gap:6px}
+.ui .bag div{display:flex;align-items:center;gap:9px;background:#fff;border-radius:11px;padding:7px 10px;box-shadow:0 4px 10px -8px rgba(0,0,0,.5);font-weight:700;font-size:.82rem}
+.ui .bag div i{width:24px;height:24px;border-radius:7px;background:#0f3d24;display:grid;place-items:center;flex:0 0 auto}
+.ui .bag div i svg{width:13px;height:13px}
+.ui .bag div b{margin-left:auto;font-family:var(--serif);font-size:1rem;color:#0f3a22}
+.ui .bag div b em{font-style:normal;font-family:var(--sans);font-size:.62rem;color:#4f5c53;margin-left:2px}
+
 /* ---------- étapes ---------- */
 .steps{background:var(--cream-2)}
 .steps .wrap{display:grid;grid-template-columns:1.15fr 3fr;gap:40px;align-items:center;padding-top:44px;padding-bottom:44px}
@@ -149,9 +178,12 @@ a{color:inherit;text-decoration:none}
 .faq details p{padding:0 16px 14px;font-size:.88rem;line-height:1.55;color:rgba(255,255,255,.85)}
 
 /* ---------- bandeau final ---------- */
-.final{position:relative;min-height:460px;display:grid;place-items:center;text-align:center;color:#fff;background:#163d22 url(img/final-parcours.jpg) 74% 60%/cover no-repeat}
-.final::before{content:"";position:absolute;inset:0;background:radial-gradient(48% 45% at 50% 52%,rgba(5,30,16,.5),rgba(5,30,16,.08) 80%),linear-gradient(180deg,rgba(5,30,16,.35),transparent 30%)}
-.final .inner{position:relative;padding:80px 24px}
+.final{position:relative;min-height:470px;display:grid;place-items:center;text-align:center;color:#fff;overflow:hidden;
+  background:radial-gradient(30% 45% at 78% 52%,rgba(255,206,110,.85),transparent 70%),radial-gradient(70% 40% at 50% 60%,rgba(232,160,70,.45),transparent 75%),linear-gradient(180deg,#0d2c1b 0%,#3d4a2a 28%,#b9823c 50%,#e4a955 58%,#6f7d3a 70%,#2c5a2c 100%)}
+.final .scene{height:66%;background-size:132% auto;background-position:0 100%;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 28%);mask-image:linear-gradient(180deg,transparent 0%,#000 28%)}
+@media (max-width:900px){.final .scene{background-size:cover;background-position:58% 100%}}
+.final::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(46% 40% at 50% 50%,rgba(5,30,16,.42),rgba(5,30,16,0) 80%),linear-gradient(180deg,rgba(5,30,16,.35),transparent 30%)}
+.final .inner{position:relative;z-index:2;padding:80px 24px}
 .final h2{font-family:var(--serif);font-weight:700;font-size:clamp(2rem,4.3vw,3.4rem);text-shadow:0 4px 24px rgba(0,0,0,.45)}
 .final p{margin:10px 0 34px;font-size:1.25rem;font-weight:500;text-shadow:0 2px 12px rgba(0,0,0,.5)}
 .final .btn{padding:18px 40px;font-size:1.12rem}
@@ -189,7 +221,7 @@ footer .more a{text-decoration:underline;text-underline-offset:3px}
   .hero::before{background:linear-gradient(180deg,rgba(5,30,16,.85) 0%,rgba(5,30,16,.6) 55%,rgba(5,30,16,.3) 100%)}
   .hero-in{grid-template-columns:1fr}
   .hero .phone{justify-self:center;margin:30px auto -140px;width:270px;transform:rotateZ(4deg)}
-  .perks{padding-top:140px}
+  .perks{padding-top:70px}
   .perks .row{grid-template-columns:1fr 1fr;row-gap:28px}
   .perk:nth-child(3){border-left:0}
   .steps .wrap{grid-template-columns:1fr}
@@ -204,7 +236,7 @@ footer .more a{text-decoration:underline;text-underline-offset:3px}
   .nav .btn{padding:13px}
   .hero .ctas .btn{width:100%}
   .hero .phone{width:230px;margin-bottom:-150px}
-  .perks{padding-top:130px}
+  .perks{padding-top:40px}
   .perks .row{grid-template-columns:1fr;padding:24px 0}
   .perk{padding:0 22px}
   .perk+.perk{border-left:0;border-top:1px solid var(--line);padding-top:20px}
@@ -234,6 +266,7 @@ footer .more a{text-decoration:underline;text-underline-offset:3px}
 
 <!-- ================= EN-TÊTE + HERO ================= -->
 <header class="hero" id="top">
+  <div class="scene" aria-hidden="true"></div>
   <div class="nav">
     <div class="wrap">
       <a class="brand" href="#top" aria-label="SwingUp Télémètre Golf">
@@ -301,22 +334,22 @@ footer .more a{text-decoration:underline;text-underline-offset:3px}
       <article class="feat">
         <div class="hd"><span class="num">1</span><h3>Visualisez<br>votre parcours</h3></div>
         <p>Une carte satellite précise pour connaître votre terrain.</p>
-        <div class="phone"><div class="scr"><img src="img/ecran-3.webp" width="600" height="1300" loading="lazy" style="--z:2.1;--tx:-24%;--ty:-17%" alt="Vue satellite rapprochée d'un green"></div></div>
+        <div class="phone"><div class="scr"><img src="img/ecran-2.webp" width="600" height="1300" loading="lazy" style="--z:1.35;--tx:-8%;--ty:-13%" alt="Vue satellite d'un trou avec la ligne de jeu jusqu'au green"></div></div>
       </article>
       <article class="feat">
         <div class="hd"><span class="num">2</span><h3>Consultez<br>vos distances</h3></div>
         <p>Avant, arrière, gauche, droite et dénivelé.</p>
-        <div class="phone"><div class="scr"><img src="img/ecran-1.webp" width="600" height="1300" loading="lazy" style="--z:2.3;--tx:-40%;--ty:-15%" alt="Distances affichées sur la ligne de jeu"></div></div>
+        <div class="phone"><div class="scr" role="img" aria-label="Distances au green : avant 172 m, arrière 182 m, gauche 177 m, droite 177 m, dénivelé −0,9 m"><div class="ui"><div class="bar"><span>Trou 1 · Zone 1</span><span>GPS ±4 m</span></div><div class="dist"><div><small>Avant</small><b>172<em>m</em></b></div><div><small>Arrière</small><b>182<em>m</em></b></div><div><small>Gauche</small><b>177<em>m</em></b></div><div><small>Droite</small><b>177<em>m</em></b></div><div class="full"><small>Dénivelé</small><b>−0,9<em>m</em></b></div></div></div></div></div>
       </article>
       <article class="feat">
         <div class="hd"><span class="num">3</span><h3>Préparez votre<br>stratégie</h3></div>
         <p>Choisissez le bon club et le bon coup.</p>
-        <div class="phone"><div class="scr"><img src="img/ecran-1.webp" width="600" height="1300" loading="lazy" style="--z:2.7;--tx:-4%;--ty:-77.5%" alt="Club conseillé : Bois 3"></div></div>
+        <div class="phone"><div class="scr" role="img" aria-label="Club conseillé : Bois 3"><div class="ui"><div class="bar"><span>Trou 1 · Zone 1</span><span>Ø 10 m</span></div><div class="club"><small>Club conseillé</small><b>Bois 3</b><span>176 m au centre de la zone, dénivelé compris · porte 185 m, marge de 9 m</span><div class="chips"><i>AV</i><i class="on">CEN</i><i>ARR</i><i>SAC</i></div></div></div></div></div>
       </article>
       <article class="feat">
         <div class="hd"><span class="num">4</span><h3>Retrouvez vos<br>informations</h3></div>
         <p>Sauvegardez vos greens et votre sac.</p>
-        <div class="phone"><div class="scr"><img src="img/ecran-4.webp" width="600" height="1300" loading="lazy" style="--z:2.2;--tx:-1%;--ty:-19%" alt="Écran Mon sac : distance de chaque club"></div></div>
+        <div class="phone"><div class="scr" role="img" aria-label="Mon sac : distance de chaque club"><div class="ui"><div class="bar"><span>Mon sac</span><span>Total</span></div><div class="bag"><div><i><svg viewBox="0 0 16 16"><path d="M10.5 1.5 7 11" stroke="#e2bb5c" stroke-width="1.6" stroke-linecap="round"/><ellipse cx="5.6" cy="12.2" rx="2.8" ry="1.9" fill="#e2bb5c"/></svg></i>Driver<b>200<em>m</em></b></div><div><i><svg viewBox="0 0 16 16"><path d="M10.5 1.5 7 11" stroke="#e2bb5c" stroke-width="1.6" stroke-linecap="round"/><ellipse cx="5.6" cy="12.2" rx="2.8" ry="1.9" fill="#e2bb5c"/></svg></i>Bois 3<b>185<em>m</em></b></div><div><i><svg viewBox="0 0 16 16"><path d="M10.5 1.5 7 11" stroke="#e2bb5c" stroke-width="1.6" stroke-linecap="round"/><ellipse cx="5.6" cy="12.2" rx="2.8" ry="1.9" fill="#e2bb5c"/></svg></i>Bois 5<b>170<em>m</em></b></div><div><i><svg viewBox="0 0 16 16"><path d="M10.5 1.5 7 11" stroke="#e2bb5c" stroke-width="1.6" stroke-linecap="round"/><ellipse cx="5.6" cy="12.2" rx="2.8" ry="1.9" fill="#e2bb5c"/></svg></i>Hybride<b>160<em>m</em></b></div><div><i><svg viewBox="0 0 16 16"><path d="M10.5 1.5 7 11" stroke="#e2bb5c" stroke-width="1.6" stroke-linecap="round"/><ellipse cx="5.6" cy="12.2" rx="2.8" ry="1.9" fill="#e2bb5c"/></svg></i>Fer 4<b>152<em>m</em></b></div><div><i><svg viewBox="0 0 16 16"><path d="M10.5 1.5 7 11" stroke="#e2bb5c" stroke-width="1.6" stroke-linecap="round"/><ellipse cx="5.6" cy="12.2" rx="2.8" ry="1.9" fill="#e2bb5c"/></svg></i>Fer 5<b>143<em>m</em></b></div></div></div></div></div>
       </article>
     </div>
   </div>
@@ -392,6 +425,7 @@ footer .more a{text-decoration:underline;text-underline-offset:3px}
 
 <!-- ================= BANDEAU FINAL ================= -->
 <section class="final">
+  <div class="scene" aria-hidden="true"></div>
   <div class="inner">
     <h2>Votre prochain parcours commence ici.</h2>
     <p>Découvrez SwingUp et profitez d'une nouvelle expérience du golf.</p>
